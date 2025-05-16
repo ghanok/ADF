@@ -1,0 +1,18 @@
+{
+	"name": "DS_Listoffiles_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_hanok",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "container-a"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

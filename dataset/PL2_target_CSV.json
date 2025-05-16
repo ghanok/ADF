@@ -1,0 +1,28 @@
+{
+	"name": "PL2_target_CSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_hanok",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				},
+				"folderPath": "output",
+				"fileSystem": "container-hanok"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

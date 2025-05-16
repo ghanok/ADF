@@ -1,0 +1,27 @@
+{
+	"name": "PL2_Copy_all_files_Source2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_hanok",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_type": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_type",
+					"type": "Expression"
+				},
+				"fileSystem": "container-hanok"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
