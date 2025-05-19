@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -79,6 +80,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -100,7 +102,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@greater(activity('Get_Metadata_ForEach').output.size,pipeline().parameters.PL5_Copyfiles_with_filesize_greater)",
+									"value": "@greater(activity('Get_Metadata_ForEach').output.size,pipeline().parameters.file_size_limit)",
 									"type": "Expression"
 								}
 							}
@@ -109,9 +111,9 @@
 				}
 			}
 		],
-		"variables": {
-			"file_size_limit": {
-				"type": "String"
+		"parameters": {
+			"RequiredFileSize": {
+				"type": "int"
 			}
 		},
 		"annotations": []
