@@ -1,5 +1,5 @@
 {
-	"name": "DS_PL4_Source",
+	"name": "DS_PL4_Source_2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage_hanok",
