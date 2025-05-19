@@ -16,14 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_PL4_Source",
+						"referenceName": "DS_PL4_Source_Input",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"
 					],
 					"storeSettings": {
-						"type": "AzureBlobFSReadSettings",
+						"type": "AzureBlobStorageReadSettings",
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -64,18 +64,44 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "DS_PL4_Source_2",
-									"type": "DatasetReference"
+									"referenceName": "DS_PL4_Source_Input2",
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								},
 								"fieldList": [
-									"itemName"
+									"itemName",
+									"size"
 								],
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
+									"type": "AzureBlobStorageReadSettings",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
 									"type": "BinaryReadSettings"
+								}
+							}
+						},
+						{
+							"name": "If Condition_greater_than_1MB",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "Get_Metadata_ForEach",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@greater(activity('Get_Metadata_ForEach').output.size,pipeline().parameters.PL5_Copyfiles_with_filesize_greater)",
+									"type": "Expression"
 								}
 							}
 						}
@@ -83,6 +109,11 @@
 				}
 			}
 		],
+		"variables": {
+			"file_size_limit": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }

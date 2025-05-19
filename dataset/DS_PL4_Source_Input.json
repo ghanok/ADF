@@ -1,0 +1,17 @@
+{
+	"name": "DS_PL4_Source_Input",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_hanok",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "container-blob-input"
+			}
+		}
+	}
+}
