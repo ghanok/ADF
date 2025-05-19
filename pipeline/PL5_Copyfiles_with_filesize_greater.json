@@ -102,13 +102,15 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@greater(activity('Get_Metadata_ForEach').output.size,pipeline().parameters.requiredFileSize)",
+									"value": "@greater(activity('Get_Metadata_ForEach').output.size,pipeline().parameters.RequiredFileSize)",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
 									{
 										"name": "Copy_file_greater_than_1MB",
 										"type": "Copy",
+										"state": "Inactive",
+										"onInactiveMarkAs": "Succeeded",
 										"dependsOn": [],
 										"policy": {
 											"timeout": "0.12:00:00",
@@ -143,7 +145,7 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"filename": {
-														"value": "@activity('Get_Metadata_Filesize').output.itemName",
+														"value": "@activity('Get_Metadata_Filesize').output.childItems",
 														"type": "Expression"
 													}
 												}
@@ -152,7 +154,13 @@
 										"outputs": [
 											{
 												"referenceName": "DS_PL5_Copyfiles_Target2",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"Filename": {
+														"value": "@activity('Get_Metadata_Filesize').output.childItems",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
