@@ -1,0 +1,26 @@
+{
+	"name": "DS_PL5_Copyfiles_Target2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_hanok",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"File_size": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().File_size",
+					"type": "Expression"
+				},
+				"container": "container-blob-output"
+			}
+		}
+	}
+}

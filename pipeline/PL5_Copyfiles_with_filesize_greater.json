@@ -102,9 +102,61 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@greater(activity('Get_Metadata_ForEach').output.size,pipeline().parameters.file_size_limit)",
+									"value": "@greater(activity('Get_Metadata_ForEach').output.size,pipeline().parameters.requiredFileSize)",
 									"type": "Expression"
-								}
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Copy_file_greater_than_1MB",
+										"type": "Copy",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "BinarySource",
+												"storeSettings": {
+													"type": "AzureBlobStorageReadSettings",
+													"recursive": true
+												},
+												"formatSettings": {
+													"type": "BinaryReadSettings"
+												}
+											},
+											"sink": {
+												"type": "BinarySink",
+												"storeSettings": {
+													"type": "AzureBlobStorageWriteSettings"
+												}
+											},
+											"enableStaging": false
+										},
+										"inputs": [
+											{
+												"referenceName": "DS_PL5_Copyfiles_Source3",
+												"type": "DatasetReference",
+												"parameters": {
+													"filename": {
+														"value": "@activity('Get_Metadata_Filesize').output.itemName",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "DS_PL5_Copyfiles_Target2",
+												"type": "DatasetReference"
+											}
+										]
+									}
+								]
 							}
 						}
 					]
