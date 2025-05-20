@@ -14,11 +14,11 @@
 		"AzureDataLakeStorage_hanok_properties_typeProperties_url": {
 			"value": "https://storageaccounthanok.dfs.core.windows.net/"
 		},
-		"LS_Keyvalut_hanok_properties_typeProperties_baseUrl": {
-			"value": "https://Hanok-keyvault.vault.azure.net/"
-		},
 		"LS_ADLSgen2_keyvault_properties_typeProperties_url": {
 			"value": "https://storageaccounthanok.dfs.core.windows.net/"
+		},
+		"LS_Keyvalut_hanok_properties_typeProperties_baseUrl": {
+			"value": "https://Hanok-keyvault.vault.azure.net/"
 		},
 		"containerUri": {
 			"value": ""
