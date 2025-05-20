@@ -1,0 +1,17 @@
+{
+	"name": "DS_PL6_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSgen2_keyvault",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "container-19may25-input"
+			}
+		}
+	}
+}
