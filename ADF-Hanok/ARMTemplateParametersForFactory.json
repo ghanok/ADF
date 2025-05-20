@@ -19,6 +19,15 @@
 		},
 		"LS_Keyvalut_hanok_properties_typeProperties_baseUrl": {
 			"value": "https://Hanok-keyvault.vault.azure.net/"
+		},
+		"LS_AzureSQL_hanok_properties_typeProperties_server": {
+			"value": "hanoksqlserver.database.windows.net"
+		},
+		"LS_AzureSQL_hanok_properties_typeProperties_database": {
+			"value": "hanok_sql_database"
+		},
+		"LS_AzureSQL_hanok_properties_typeProperties_userName": {
+			"value": "admin123"
 		}
 	}
 }
