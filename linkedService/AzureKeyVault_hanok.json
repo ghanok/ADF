@@ -1,0 +1,10 @@
+{
+	"name": "AzureKeyVault_hanok",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://Hanok-keyvault.vault.azure.net/"
+		}
+	}
+}
