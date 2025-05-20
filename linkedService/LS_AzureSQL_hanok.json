@@ -1,0 +1,23 @@
+{
+	"name": "LS_AzureSQL_hanok",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "hanoksqlserver.database.windows.net",
+			"database": "hanok_sql_database",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "hanok",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LS_Keyvalut_hanok",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "SQLpassword"
+			}
+		}
+	}
+}
