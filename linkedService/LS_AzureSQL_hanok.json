@@ -9,7 +9,7 @@
 			"encrypt": "mandatory",
 			"trustServerCertificate": false,
 			"authenticationType": "SQL",
-			"userName": "hanok",
+			"userName": "admin123",
 			"password": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
